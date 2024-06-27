@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login page</title>
+</head>
+<body>
+  <h1>Well of Wisdom</h1>
+  <form method="POST" action="/new_user">
+    {{form.hidden_tag()}}
+    {{form.name.label}}
+    {{form.name()}}
+    <br>
+    <br>
+    {{form.email.label}}
+    {{form.email()}}
+    <br>
+    <br>
+    {{form.phone.label}}
+    {{form.phone()}}
+    <br>
+    <br>
+    {{form.password.label}}
+    {{form.password()}}
+    <br>
+    <br>
+   
+
+  </form>
+  <p>{{status}}</p>
+</form>
+<form action="/tasks" method="POST">  <button type="submit"> 
+  {{form.submit()}}</button>
+</form>
+  <!-- <h4> Output:</h4>
+  <p id="output" >{{output}}</p> -->
+</body>
+</html>
