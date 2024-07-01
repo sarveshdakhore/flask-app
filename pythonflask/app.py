@@ -47,7 +47,7 @@ def signup():
             password=form.password.data
             form.name.data=" "
             print("--------------------------------------------------- name:\n ", name)
-           
+
 
 
 
@@ -56,29 +56,29 @@ def signup():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    email=None
+    password=None
+    status=''
+    loginform=LoginForm()
     if request.method == "POST":
-        email=None
-        password=None
-        status=''
-        loginform=LoginForm()
+        
         print(loginform.validate_on_submit())
         if loginform.validate_on_submit():
             email=loginform.email.data
             password=loginform.password.data
             
-            
-
         else:
     # Access validation errors
-          for field, errors in loginform.errors.items():
-              print(f"Error in field {field}: {errors}")
-        
+            for field, errors in loginform.errors.items():
+                print(f"Error in field {field}: {errors}")
+    if request.method == "GET":
+        status = 'Please log in.'
     return render_template("login.html",email=email,password=password,form=loginform)
 
 @app.route("/tasks", methods=["GET", "POST"])
 def tasks_page():
-  print("taskspage")
-  return render_template("tasks.html")
+    print("taskspage")
+    return render_template("tasks.html")
 
 
 
